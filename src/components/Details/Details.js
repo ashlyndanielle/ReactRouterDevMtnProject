@@ -20,6 +20,11 @@ export function Details( { addToCart, history, products, match } ) {
 		, price
 	} = product;
 
+	function addToCartRedirect() {
+		addToCart(id);
+		history.goBack();
+	}
+
 	return (
 		<div className="details">
 			<Link to="/shop">
@@ -34,7 +39,7 @@ export function Details( { addToCart, history, products, match } ) {
 			<p className="details__description">{ description }</p>
 			<button
 				className="details__buy"
-				onClick={ addToCart( id ) }
+				onClick={ addToCartRedirect }
 			>
 				Buy now for ${ price }!
 			</button>
